@@ -33,7 +33,7 @@ function encrypt(k) {
     return encryptText
 }
 
-document.addEventListener('keypress', event => {
+inputText.addEventListener('keypress', event => {
     if (event.code === 13) {
         let k = Number(inputK.value)
         document.querySelector('#parEncrypt').textContent = encrypt(k)
