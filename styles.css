@@ -14,9 +14,18 @@ form {
     width: 10%;
 }
 
-button {
+button, p {
     margin: 10px;
     padding: 10px;
     font-size: 25px;
     border-radius: 15px;
+    border: 2px solid black;
 }
+
+p {
+    width: 40%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
