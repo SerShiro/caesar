@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    justify-content: center;
+}
+
+#input, #k {
+    width: 40%;
+    margin: 10px;
+    padding: 5px;
+    font-size: 25px;
+}
+
+#k {
+    width: 10%;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 15px;
+}
