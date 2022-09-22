@@ -1,8 +1,8 @@
 const inputText = document.querySelector('#input')
+const inputDec = document.querySelector('#inputDec')
 const inputK = document.querySelector('#k')
-const btn = document.querySelector('button')
-let number = 1
-const symbols = [`.`, `,`, `:`, `!`, `?`, `;`, `-`, ` `, `_`]
+const btnEnc = document.querySelector('#btnEnc')
+const btnDec = document.querySelector('#btnDec')
 
 function alphabet(number) {
     const alphAll = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
@@ -16,33 +16,55 @@ function alphabet(number) {
     // else alert('Ошибка')
 }
 
-function encrypt(k) {
+function encrypt(k, number, input) {
     const alphabetet = alphabet(number)
-    let input = inputText.value.toLowerCase()
 
-    let encryptText = `` 
+    let encryptText = ``
     for (let i = 0; i < input.length; i++) {
         const j = alphabetet.indexOf(input[i])
         if (j === -1) {
-            encryptText += `${input[i]}`
+            encryptText += input[i]
         }
         else {
-            encryptText += `${alphabetet[(j + k) % alphabet(number).length]}`
+            encryptText += alphabetet[(j + k) % alphabet(number).length]
         }
     }
     return encryptText
 }
 
+function decrypt() {
+    let decryptText = ``
+    let input = inputDec.value.toLowerCase()
+    for(let number = 1; number <= 4; number++) {
+        for (let k = 0; k < alphabet(number).length; k++) {
+            decryptText += encrypt(k, number, input) + `<br>`
+        }
+    }
+    return decryptText
+}
+
 inputText.addEventListener('keypress', event => {
-    if (event.code === 13) {
+    if (event.keyCode === 13) {
         let k = Number(inputK.value)
-        document.querySelector('#parEncrypt').textContent = encrypt(k)
+        document.querySelector('#parEncrypt').textContent = encrypt(k, 1, input)
     }
 })
 
-btn.addEventListener('click', (event) => {
+btnEnc.addEventListener('click', (event) => {
     event.preventDefault()
     let k = Number(inputK.value)
-    document.querySelector('#parEncrypt').textContent = encrypt(k)
+    let input = inputText.value.toLowerCase()
+    document.querySelector('#parEncrypt').textContent = encrypt(k, 1, input)
 })
 
+btnDec.addEventListener('click', (event) => {
+    event.preventDefault()
+    document.querySelector('.parDecrypt').innerHTML = decrypt()
+})
+
+inputDec.addEventListener('keypress', event => {
+    if (event.keyCode === 13) {
+        event.preventDefault()
+        document.querySelector('.parDecrypt').innerHTML = decrypt()
+    }
+})
