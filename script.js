@@ -17,16 +17,16 @@ function alphabet(number) {
 }
 
 function encrypt(k, number, input) {
-    const alphabetet = alphabet(number)
+    const alphabetEncrypt = alphabet(number)
 
     let encryptText = ``
     for (let i = 0; i < input.length; i++) {
-        const j = alphabetet.indexOf(input[i])
+        const j = alphabetEncrypt.indexOf(input[i])
         if (j === -1) {
             encryptText += input[i]
         }
         else {
-            encryptText += alphabetet[(j + k) % alphabet(number).length]
+            encryptText += alphabetEncrypt[(j + k) % alphabet(number).length]
         }
     }
     return encryptText
