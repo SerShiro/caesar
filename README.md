@@ -11,4 +11,4 @@
 
 2 Способ:
 
-1. Перейти по [ссылке](https://sershiro.github.io/caesar/)
+1. Перейдите по [ссылке](https://sershiro.github.io/caesar/)
