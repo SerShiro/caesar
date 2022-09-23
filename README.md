@@ -1,3 +1,3 @@
-# caesar
+# Caesar 's cipher
 https://sershiro.github.io/caesar/
-Encrypt and Decrypt Caesar 's cipher 
+*Encrypt and Decrypt Caesar 's cipher 
